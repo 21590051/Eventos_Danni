@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}Agregar Cliente{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body p-4">
+                <h2 class="page-title">
+                    <i class="fas fa-user-plus me-2"></i>
+                    Agregar Detalles del Cliente
+                </h2>
+
+                <form action="{{url_for('create_cliente')}}" method="POST" class="needs-validation" novalidate>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="no_evento" name="no_evento" placeholder="Número de Evento" required>
+                                <label for="no_evento">Número de Evento</label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+                                <label for="nombre">Nombre</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="ap_paterno" name="ap_paterno" placeholder="Apellido Paterno" required>
+                                <label for="ap_paterno">Apellido Paterno</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="ap_materno" name="ap_materno" placeholder="Apellido Materno" required>
+                                <label for="ap_materno">Apellido Materno</label>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" id="detalle_evento" name="detalle_evento" placeholder="Detalles del Evento" style="height: 100px" required></textarea>
+                                <label for="detalle_evento">Detalles del Evento</label>
+                            </div>
+                        </div>
+
+                        <div class="col-12 d-flex gap-2 justify-content-end mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Guardar
+                            </button>
+                            <a href="{{url_for('index')}}" class="btn btn-danger">
+                                <i class="fas fa-times me-2"></i>Cancelar
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

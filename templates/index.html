@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Eventos{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="card-body p-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="page-title mb-0">
+                <i class="fas fa-calendar-alt me-2"></i>
+                Lista de Eventos
+            </h2>
+        
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Evento</th>
+                        <th>Nombre</th>
+                        <th>Apellido Paterno</th>
+                        <th>Apellido Materno</th>
+                        <th>Detalles</th>
+                        <th class="text-end">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for eventos in eventos %}
+                    <tr>
+                        <td>
+                            <span class="badge bg-primary">{{eventos.no_evento}}</span>
+                        </td>
+                        <td>{{eventos.nombre}}</td>
+                        <td>{{eventos.ap_paterno}}</td>
+                        <td>{{eventos.ap_materno}}</td>
+                        <td>
+                            <span class="text-truncate d-inline-block" style="max-width: 200px;">
+                                {{eventos.detalle_evento}}
+                            </span>
+                        </td>
+                        <td class="text-end">
+                            <a href="{{url_for('update_cliente', no_evento=eventos.no_evento)}}" 
+                               class="btn btn-sm btn-warning me-1">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="{{url_for('delete_cliente', no_evento=eventos.no_evento)}}" 
+                               class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
