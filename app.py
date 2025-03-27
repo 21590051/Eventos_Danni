@@ -38,6 +38,10 @@ class Evento(db.Model):
             'detalle_evento': self.detalle_evento,
          }
 
+
+with app.app_context():
+    db.create_all()
+
 # Ruta raiz/ 
 @app.route('/')
 def index():
@@ -50,8 +54,6 @@ def index():
 def getClientes():
     return 'Aqui van los clientes'
 
-with app.app_context():
-    db.create_all()
 
 #Ruta /crear un nuevo cliente
 @app.route('/eventos/new', methods=['GET', 'POST'])
