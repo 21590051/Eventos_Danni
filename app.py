@@ -18,6 +18,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)    
   
 
+
 #modelo de la base de datos
 
 class Evento(db.Model):
@@ -48,6 +49,9 @@ def index():
 @app.route('/eventos')
 def getClientes():
     return 'Aqui van los clientes'
+
+with app.app_context():
+    db.create_all()
 
 #Ruta /crear un nuevo cliente
 @app.route('/eventos/new', methods=['GET', 'POST'])
