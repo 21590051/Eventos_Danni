@@ -27,7 +27,7 @@ class Evento(db.Model):
     nombre = db.Column(db.String)
     ap_paterno = db.Column(db.String)
     ap_materno = db.Column(db.String)
-    detalle_evento = db.Column(db.Integer)
+    no_personas = db.Column(db.String) 
      
     def to_dict(self):
         return{
@@ -35,24 +35,29 @@ class Evento(db.Model):
             'nombre': self.nombre,
             'ap_paterno':self.ap_paterno, 
             'ap_materno': self.ap_materno,
-            'detalle_evento': self.detalle_evento,
+            'no_personas': self.no_personas,
          }
 
 
 with app.app_context():
     db.create_all()
 
-# Ruta raiz/ 
+# Ruta principal - Página de inicio
 @app.route('/')
+def home():
+    return render_template('home.html')
+
+# Ruta para gestión de eventos
+@app.route('/eventos')
 def index():
-    #trae todos los alumnos
+    #trae todos los eventos
     eventos = Evento.query.all()
     return render_template('index.html', eventos = eventos)
 
-# Ruta /eventos
-@app.route('/eventos')
+# Ruta /eventos (mantenida para compatibilidad)
+@app.route('/clientes')
 def getClientes():
-    return 'Aqui van los clientes'
+    return redirect(url_for('index'))
 
 
 #Ruta /crear un nuevo cliente
@@ -64,9 +69,9 @@ def create_cliente():
         nombre = request.form ['nombre']
         ap_paterno = request.form ['ap_paterno']
         ap_materno = request.form ['ap_materno']
-        detalle_evento = request.form ['detalle_evento']
+        no_personas = request.form ['no_personas']
         
-        nvo_evento = Evento(no_evento=no_evento, nombre=nombre,ap_paterno=ap_paterno, ap_materno=ap_materno, detalle_evento=detalle_evento)
+        nvo_evento = Evento(no_evento=no_evento, nombre=nombre,ap_paterno=ap_paterno, ap_materno=ap_materno, no_personas=no_personas)
         db.session.add(nvo_evento)
         db.session.commit()
         
@@ -84,8 +89,6 @@ def delete_cliente(no_evento):
         db.session.commit()
     return redirect(url_for('index'))
 
-
-
 #Actualizar cliente
 @app.route('/eventos/update/<string:no_evento>', methods=['GET', 'POST'])
 def update_cliente(no_evento):
@@ -95,7 +98,7 @@ def update_cliente(no_evento):
         eventos.nombre = request.form ['nombre']
         eventos.ap_paterno = request.form ['ap_paterno']
         eventos.ap_materno = request.form ['ap_materno']
-        eventos.detalle_evento = request.form ['detalle_evento'] 
+        eventos.no_personas = request.form ['no_personas'] 
         db.session.commit()
         return redirect(url_for('index'))
     return render_template('update_cliente.html', evento = eventos)

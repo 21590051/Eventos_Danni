@@ -1,62 +1,153 @@
 {% extends 'base.html' %}
-{% block title %}Agregar Cliente{% endblock %}
+{% block title %}EcoPackTech - Nuevo Evento Sostenible{% endblock %}
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-lg-8">
         <div class="card">
+            <div class="card-header bg-white border-0 pb-0">
+                <div class="text-center">
+                    <i class="fas fa-seedling text-success fs-1 mb-3"></i>
+                    <h2 class="page-title">
+                        <i class="fas fa-plus-circle eco-icon"></i>
+                        Crear Nuevo Evento Ecológico
+                    </h2>
+                    <p class="text-muted">Registra un nuevo evento comprometido con la sostenibilidad</p>
+                </div>
+            </div>
             <div class="card-body p-4">
-                <h2 class="page-title">
-                    <i class="fas fa-user-plus me-2"></i>
-                    Agregar Detalles del Cliente
-                </h2>
-
                 <form action="{{url_for('create_cliente')}}" method="POST" class="needs-validation" novalidate>
                     <div class="row g-4">
+                        <div class="col-12">
+                            <div class="alert alert-info border-0" role="alert">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Tip EcoPackTech:</strong> Cada evento que registres contribuye a nuestro compromiso con el medio ambiente.
+                            </div>
+                        </div>
+
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="no_evento" name="no_evento" placeholder="Número de Evento" required>
-                                <label for="no_evento">Número de Evento</label>
+                                <input type="text" class="form-control" id="no_evento" name="no_evento" 
+                                       placeholder="Número de Evento" required>
+                                <label for="no_evento">
+                                    <i class="fas fa-hashtag me-1"></i>
+                                    Número de Evento
+                                </label>
+                                <div class="invalid-feedback">
+                                    Por favor, ingresa el número de evento.
+                                </div>
                             </div>
                         </div>
                         
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
-                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" 
+                                       placeholder="Nombre" required>
+                                <label for="nombre">
+                                    <i class="fas fa-user me-1"></i>
+                                    Nombre del Responsable
+                                </label>
+                                <div class="invalid-feedback">
+                                    Por favor, ingresa el nombre del responsable.
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="ap_paterno" name="ap_paterno" placeholder="Apellido Paterno" required>
-                                <label for="ap_paterno">Apellido Paterno</label>
+                                <input type="text" class="form-control" id="ap_paterno" name="ap_paterno" 
+                                       placeholder="Apellido Paterno" required>
+                                <label for="ap_paterno">
+                                    <i class="fas fa-user-tag me-1"></i>
+                                    Apellido Paterno
+                                </label>
+                                <div class="invalid-feedback">
+                                    Por favor, ingresa el apellido paterno.
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="ap_materno" name="ap_materno" placeholder="Apellido Materno" required>
-                                <label for="ap_materno">Apellido Materno</label>
+                                <input type="text" class="form-control" id="ap_materno" name="ap_materno" 
+                                       placeholder="Apellido Materno" required>
+                                <label for="ap_materno">
+                                    <i class="fas fa-user-tag me-1"></i>
+                                    Apellido Materno
+                                </label>
+                                <div class="invalid-feedback">
+                                    Por favor, ingresa el apellido materno.
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" id="detalle_evento" name="detalle_evento" placeholder="Detalles del Evento" style="height: 100px" required></textarea>
-                                <label for="detalle_evento">Detalles del Evento</label>
+                                <textarea class="form-control" id="no_personas" name="no_personas" 
+                                          placeholder="Numero de Personas" style="height: 120px" required></textarea>
+                                <label for="no_personas">
+                                    <i class="fas fa-leaf me-1"></i>
+                                    Personas que Asisten al Evento
+                                </label>
+                                <div class="invalid-feedback">
+                                    Por favor, describe el numero de personas
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="card bg-light border-0">
+                                <div class="card-body">
+                                    <h6 class="card-title text-success">
+                                        <i class="fas fa-recycle me-2"></i>
+                                        Compromiso Ecológico
+                                    </h6>
+                                    <div class="row text-center">
+                                        <div class="col-4">
+                                            <i class="fas fa-leaf text-success fs-4"></i>
+                                            <div class="small mt-1">Materiales Biodegradables</div>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fas fa-recycle text-success fs-4"></i>
+                                            <div class="small mt-1">Reciclaje Activo</div>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="fas fa-globe-americas text-success fs-4"></i>
+                                            <div class="small mt-1">Impacto Positivo</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-12 d-flex gap-2 justify-content-end mt-4">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save me-2"></i>Guardar
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="fas fa-save me-2"></i>
+                                Guardar Evento Verde
                             </button>
-                            <a href="{{url_for('index')}}" class="btn btn-danger">
-                                <i class="fas fa-times me-2"></i>Cancelar
+                            <a href="{{url_for('index')}}" class="btn btn-danger btn-lg">
+                                <i class="fas fa-times me-2"></i>
+                                Cancelar
                             </a>
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Información adicional -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card border-0 bg-gradient" style="background: linear-gradient(45deg, var(--light-green), var(--light-blue));">
+            <div class="card-body text-center">
+                <h5 class="text-success fw-bold mb-2">
+                    <i class="fas fa-heart me-2"></i>
+                    ¡Gracias por elegir eventos sostenibles!
+                </h5>
+                <p class="text-muted mb-0">
+                    Con cada evento ecológico que registras, contribuyes a un futuro más verde y sostenible para todos.
+                </p>
             </div>
         </div>
     </div>

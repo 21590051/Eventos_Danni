@@ -1,0 +1,395 @@
+{% extends 'base.html' %}
+{% block title %}EcoPackTech - Soluciones Tecnológicas Sostenibles{% endblock %}
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section mb-5">
+    <div class="row align-items-center min-vh-75">
+        <div class="col-lg-6">
+            <div class="hero-content">
+                <h1 class="display-4 fw-bold text-primary mb-4">
+                    <i class="fas fa-leaf eco-icon"></i>
+                    EcoPackTech
+                </h1>
+                <h2 class="h3 text-secondary mb-4">Soluciones Tecnológicas Sostenibles</h2>
+                <p class="lead text-muted mb-4">
+                    Transformamos la gestión empresarial con tecnología verde. Ofrecemos soluciones integrales 
+                    para eventos sostenibles y herramientas de gestión que cuidan el medio ambiente.
+                </p>
+                <div class="d-flex flex-column flex-sm-row gap-3">
+                    <a href="{{ url_for('index') }}" class="btn btn-success btn-lg">
+                        <i class="fas fa-calendar-alt me-2"></i>
+                        Gestión de Eventos
+                    </a>
+                    <a href="#servicios" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-cogs me-2"></i>
+                        Nuestros Servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="hero-image text-center">
+                <div class="eco-illustration">
+                    <i class="fas fa-globe-americas text-success" style="font-size: 8rem; opacity: 0.8;"></i>
+                    <div class="floating-icons">
+                        <i class="fas fa-leaf text-success floating-icon-1"></i>
+                        <i class="fas fa-recycle text-primary floating-icon-2"></i>
+                        <i class="fas fa-seedling text-success floating-icon-3"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <h3 class="text-center text-primary mb-5">
+            <i class="fas fa-star me-2"></i>
+            ¿Por qué elegir EcoPackTech?
+        </h3>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center p-4">
+                <i class="fas fa-leaf text-success fs-1 mb-3"></i>
+                <h5 class="card-title text-primary">Sostenibilidad</h5>
+                <p class="card-text text-muted">
+                    Comprometidos con prácticas ecológicas en cada solución que ofrecemos.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center p-4">
+                <i class="fas fa-cogs text-primary fs-1 mb-3"></i>
+                <h5 class="card-title text-primary">Tecnología Avanzada</h5>
+                <p class="card-text text-muted">
+                    Herramientas modernas y eficientes para optimizar tu gestión empresarial.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center p-4">
+                <i class="fas fa-users text-success fs-1 mb-3"></i>
+                <h5 class="card-title text-primary">Soporte Integral</h5>
+                <p class="card-text text-muted">
+                    Acompañamiento completo en la implementación de soluciones verdes.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Services Section -->
+<div id="servicios" class="services-section mb-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary mb-3">
+                    <i class="fas fa-tools me-3"></i>
+                    Nuestros Servicios
+                </h2>
+                <p class="lead text-muted">
+                    Accede a nuestras herramientas especializadas para una gestión empresarial completa
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row g-4">
+        <!-- Odoo -->
+        <div class="col-lg-6 col-md-6">
+            <div class="service-card card h-100 border-0 shadow-lg">
+                <div class="card-body p-4">
+                    <div class="service-header d-flex align-items-center mb-3">
+                        <div class="service-icon me-3">
+                            <i class="fas fa-building text-white fs-2"></i>
+                        </div>
+                        <div>
+                            <h4 class="card-title mb-1 text-primary">Odoo ERP</h4>
+                            <p class="text-muted mb-0">Sistema de Gestión Empresarial</p>
+                        </div>
+                    </div>
+                    <p class="card-text text-muted mb-4">
+                        Plataforma integral para gestionar ventas, inventario, contabilidad, recursos humanos y más. 
+                        Optimiza todos los procesos de tu empresa en una sola solución.
+                    </p>
+                    <div class="service-features mb-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> CRM Avanzado
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> Contabilidad
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> Inventarios
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> RRHH
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://odoo.ana1422.me" target="_blank" class="btn btn-primary btn-lg w-100">
+                        <i class="fas fa-external-link-alt me-2"></i>
+                        Acceder a Odoo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- NetData -->
+        <div class="col-lg-6 col-md-6">
+            <div class="service-card card h-100 border-0 shadow-lg">
+                <div class="card-body p-4">
+                    <div class="service-header d-flex align-items-center mb-3">
+                        <div class="service-icon me-3 bg-warning">
+                            <i class="fas fa-chart-line text-white fs-2"></i>
+                        </div>
+                        <div>
+                            <h4 class="card-title mb-1 text-primary">NetData</h4>
+                            <p class="text-muted mb-0">Monitoreo en Tiempo Real</p>
+                        </div>
+                    </div>
+                    <p class="card-text text-muted mb-4">
+                        Monitoreo avanzado de infraestructura y aplicaciones. Visualiza el rendimiento de tus 
+                        sistemas en tiempo real con métricas detalladas y alertas inteligentes.
+                    </p>
+                    <div class="service-features mb-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> Tiempo Real
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> Alertas
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> Dashboards
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> Métricas
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://netdata.ana1422.me" target="_blank" class="btn btn-warning btn-lg w-100">
+                        <i class="fas fa-external-link-alt me-2"></i>
+                        Acceder a NetData
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portainer -->
+        <div class="col-lg-6 col-md-6">
+            <div class="service-card card h-100 border-0 shadow-lg">
+                <div class="card-body p-4">
+                    <div class="service-header d-flex align-items-center mb-3">
+                        <div class="service-icon me-3 bg-info">
+                            <i class="fas fa-docker text-white fs-2"></i>
+                        </div>
+                        <div>
+                            <h4 class="card-title mb-1 text-primary">Portainer</h4>
+                            <p class="text-muted mb-0">Gestión de Contenedores</p>
+                        </div>
+                    </div>
+                    <p class="card-text text-muted mb-4">
+                        Interfaz gráfica intuitiva para gestionar contenedores Docker y Kubernetes. 
+                        Simplifica el despliegue y administración de aplicaciones containerizadas.
+                    </p>
+                    <div class="service-features mb-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> Docker
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> Kubernetes
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> GUI Intuitiva
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> Multi-host
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://portainer.ana1422.me" target="_blank" class="btn btn-info btn-lg w-100">
+                        <i class="fas fa-external-link-alt me-2"></i>
+                        Acceder a Portainer
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nextcloud -->
+        <div class="col-lg-6 col-md-6">
+            <div class="service-card card h-100 border-0 shadow-lg">
+                <div class="card-body p-4">
+                    <div class="service-header d-flex align-items-center mb-3">
+                        <div class="service-icon me-3 bg-success">
+                            <i class="fas fa-cloud text-white fs-2"></i>
+                        </div>
+                        <div>
+                            <h4 class="card-title mb-1 text-primary">Nextcloud</h4>
+                            <p class="text-muted mb-0">Nube Privada y Colaboración</p>
+                        </div>
+                    </div>
+                    <p class="card-text text-muted mb-4">
+                        Plataforma de colaboración y almacenamiento en la nube auto-hospedada. 
+                        Mantén el control total de tus datos con herramientas de productividad integradas.
+                    </p>
+                    <div class="service-features mb-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> Almacenamiento
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> Colaboración
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> Seguridad
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-success">
+                                    <i class="fas fa-check me-1"></i> Privacidad
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://nextcloud.ana1422.me" target="_blank" class="btn btn-success btn-lg w-100">
+                        <i class="fas fa-external-link-alt me-2"></i>
+                        Acceder a Nextcloud
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+
+.floating-icons {
+    position: relative;
+}
+
+.floating-icon-1, .floating-icon-2, .floating-icon-3 {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-icon-1 {
+    top: -20px;
+    left: -30px;
+    animation-delay: 0s;
+}
+
+.floating-icon-2 {
+    top: 20px;
+    right: -40px;
+    animation-delay: 1s;
+}
+
+.floating-icon-3 {
+    bottom: -10px;
+    left: 20px;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.hero-content {
+    animation: fadeInLeft 1s ease-out;
+}
+
+.hero-image {
+    animation: fadeInRight 1s ease-out;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.service-features small {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+</style>
+{% endblock %}

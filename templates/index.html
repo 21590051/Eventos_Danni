@@ -1,56 +1,149 @@
 {% extends 'base.html' %}
-{% block title %}Lista de Eventos{% endblock %}
+{% block title %}EcoPackTech - Gestión de Eventos Sostenibles{% endblock %}
 {% block content %}
 <div class="card">
     <div class="card-body p-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="page-title mb-0">
-                <i class="fas fa-calendar-alt me-2"></i>
-                Lista de Eventos
+                <i class="fas fa-seedling eco-icon"></i>
+                Eventos Ecológicos Registrados
             </h2>
-        
+        </div>
+
+        {% if eventos %}
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="d-flex align-items-center text-muted">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <small>Total de eventos registrados: <strong>{{ eventos|length }}</strong></small>
+                </div>
+            </div>
+            <div class="col-md-6 text-end">
+                <div class="d-flex align-items-center justify-content-end text-muted">
+                    <i class="fas fa-leaf me-2"></i>
+                    <small>Contribuyendo a un futuro más sostenible</small>
+                </div>
+            </div>
         </div>
 
         <div class="table-responsive">
             <table class="table table-hover align-middle">
                 <thead>
                     <tr>
-                        <th>Evento</th>
-                        <th>Nombre</th>
-                        <th>Apellido Paterno</th>
-                        <th>Apellido Materno</th>
-                        <th>Detalles</th>
-                        <th class="text-end">Acciones</th>
+                        <th>
+                            <i class="fas fa-hashtag me-1"></i>
+                            Evento
+                        </th>
+                        <th>
+                            <i class="fas fa-user me-1"></i>
+                            Nombre
+                        </th>
+                        <th>
+                            <i class="fas fa-user-tag me-1"></i>
+                            Apellido Paterno
+                        </th>
+                        <th>
+                            <i class="fas fa-user-tag me-1"></i>
+                            Apellido Materno
+                        </th>
+                        <th>
+                            <i class="fas fa-clipboard-list me-1"></i>
+                            No. Personas
+                        </th>
+                        <th class="text-end">
+                            <i class="fas fa-cogs me-1"></i>
+                            Acciones
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for eventos in eventos %}
                     <tr>
                         <td>
-                            <span class="badge bg-primary">{{eventos.no_evento}}</span>
+                            <span class="badge bg-primary">
+                                <i class="fas fa-calendar-alt me-1"></i>
+                                {{eventos.no_evento}}
+                            </span>
                         </td>
-                        <td>{{eventos.nombre}}</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-user-circle text-success me-2"></i>
+                                <strong>{{eventos.nombre}}</strong>
+                            </div>
+                        </td>
                         <td>{{eventos.ap_paterno}}</td>
                         <td>{{eventos.ap_materno}}</td>
                         <td>
-                            <span class="text-truncate d-inline-block" style="max-width: 200px;">
-                                {{eventos.detalle_evento}}
-                            </span>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-leaf text-success me-2"></i>
+                                <span class="text-truncate d-inline-block" style="max-width: 250px;" 
+                                      title="{{eventos.detalle_evento}}">
+                                    {{eventos.no_personas}}
+                                </span>
+                            </div>
                         </td>
                         <td class="text-end">
-                            <a href="{{url_for('update_cliente', no_evento=eventos.no_evento)}}" 
-                               class="btn btn-sm btn-warning me-1">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a href="{{url_for('delete_cliente', no_evento=eventos.no_evento)}}" 
-                               class="btn btn-sm btn-danger">
-                                <i class="fas fa-trash"></i>
-                            </a>
+                            <div class="btn-group" role="group">
+                                <a href="{{url_for('update_cliente', no_evento=eventos.no_evento)}}" 
+                                   class="btn btn-sm btn-warning" 
+                                   title="Editar evento">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="{{url_for('delete_cliente', no_evento=eventos.no_evento)}}" 
+                                   class="btn btn-sm btn-danger"
+                                   title="Eliminar evento">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </div>
                         </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <div class="mb-4">
+                <i class="fas fa-seedling text-success" style="font-size: 4rem; opacity: 0.5;"></i>
+            </div>
+            <h4 class="text-muted mb-3">No hay eventos registrados</h4>
+            <p class="text-muted mb-4">¡Comienza a crear eventos ecológicos para un futuro más sostenible!</p>
+            <a href="{{ url_for('create_cliente') }}" class="btn btn-success btn-lg">
+                <i class="fas fa-plus-circle me-2"></i>
+                Crear Primer Evento Verde
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Información adicional sobre sostenibilidad -->
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card border-0 bg-light-green">
+            <div class="card-body text-center">
+                <i class="fas fa-recycle text-success fs-2 mb-2"></i>
+                <h6 class="fw-bold"></h6>
+                <small class="text-muted">Promovemos prácticas ecológicas</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-0 bg-light-blue">
+            <div class="card-body text-center">
+                <i class="fas fa-globe-americas text-primary fs-2 mb-2"></i>
+                <h6 class="fw-bold">Impacto Global</h6>
+                <small class="text-muted">Cada evento cuenta para el planeta</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-0 bg-light-green">
+            <div class="card-body text-center">
+                <i class="fas fa-heart text-success fs-2 mb-2"></i>
+                <h6 class="fw-bold">Compromiso Verde</h6>
+                <small class="text-muted">Juntos por un futuro mejor</small>
+            </div>
         </div>
     </div>
 </div>
